@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPLIT SECOND — Timed Trivia</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="stage">
+  <div class="brand">
+    <div class="brand-mark">SPLIT<span>&nbsp;SECOND</span></div>
+    <div class="brand-right">
+      <div class="round-label" id="roundLabel"></div>
+      <div class="user-chip hidden" id="userChip">
+        <span id="userChipName"></span>
+        <button id="logoutBtn" title="Log out">LOG OUT</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <!-- AUTH SCREEN -->
+    <div class="screen" id="authScreen">
+      <h1>SPLIT SECOND</h1>
+      <p>Sign in to track your runs, or create an account.<br>Everything's stored on this device only.</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" type="button">LOG IN</button>
+        <button class="auth-tab" id="tabSignup" type="button">SIGN UP</button>
+      </div>
+
+      <form class="auth-form" id="loginForm">
+        <label class="field">
+          <span>Username</span>
+          <input type="text" id="loginUsername" autocomplete="username" placeholder="e.g. quickdraw">
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" id="loginPassword" autocomplete="current-password" placeholder="••••••••">
+        </label>
+        <div class="field-error" id="loginError"></div>
+        <button type="submit" class="btn-primary full">LOG IN</button>
+      </form>
+
+      <form class="auth-form hidden" id="signupForm">
+        <label class="field">
+          <span>Username</span>
+          <input type="text" id="signupUsername" autocomplete="username" placeholder="min. 3 characters">
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" id="signupPassword" autocomplete="new-password" placeholder="min. 4 characters">
+        </label>
+        <div class="field-error" id="signupError"></div>
+        <button type="submit" class="btn-primary full">CREATE ACCOUNT</button>
+      </form>
+
+      <button class="skip-link" id="guestBtn" type="button">Continue as guest →</button>
+    </div>
+
+    <!-- START SCREEN -->
+    <div class="hidden screen" id="startScreen">
+      <h1>SPLIT SECOND</h1>
+      <p>Ten questions. Fifteen seconds each.<br>The flap resets to zero whether you've answered or not.</p>
+      <div class="rules">
+        <div class="rule"><b>10</b>questions</div>
+        <div class="rule"><b>15s</b>per question</div>
+        <div class="rule"><b>1</b>pass, no do-overs</div>
+      </div>
+      <div class="personal-best hidden" id="personalBest"></div>
+      <button class="btn-primary" id="startBtn">START THE CLOCK</button>
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div class="hidden" id="quizScreen">
+      <div class="timer-wrap">
+        <div class="flap-row" id="flapRow"></div>
+        <div class="timer-caption">seconds remaining</div>
+      </div>
+
+      <div class="progress" id="progress"></div>
+
+      <div class="q-eyebrow" id="qEyebrow">QUESTION 1 OF 10</div>
+      <div class="q-text" id="qText"></div>
+      <div class="options" id="options"></div>
+
+      <div class="foot-row">
+        <div class="score-tick">SCORE&nbsp; <b id="scoreTick">0</b> / 10</div>
+        <button class="next-btn" id="nextBtn">NEXT →</button>
+      </div>
+    </div>
+
+    <!-- END SCREEN -->
+    <div class="hidden screen" id="endScreen">
+      <div class="q-eyebrow" style="text-align:center;">FINAL RESULT</div>
+      <div class="result-score" id="resultScore">0/10</div>
+      <div class="result-grade" id="resultGrade"></div>
+      <div class="breakdown" id="breakdown"></div>
+
+      <div class="history-block hidden" id="historyBlock">
+        <div class="q-eyebrow" style="text-align:left;">YOUR PAST RUNS</div>
+        <div class="history-list" id="historyList"></div>
+      </div>
+
+      <button class="btn-primary" id="restartBtn">RUN IT BACK</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
